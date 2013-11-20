@@ -27,5 +27,3 @@ refer to [janhooo.wordpress.com](http://janhooo.wordpress.com/2013/11/20/gcm-use
 ### License
 
 This package is licensed to you under the terms of the [GNU General Public License](http://www.gnu.org/licenses/gpl.html) version 3 or later.
-
-Copyright 2013 jan holstein <holstein@uni-bremen.de>
