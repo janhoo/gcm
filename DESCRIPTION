@@ -1,0 +1,9 @@
+Package: gcm
+Type: Package
+Title: plot raster maps using GRASS(-style) colormaps
+Version: 1.0
+Date: 2013-11-19
+Author: Jan Holstein <holstein@uni-bremen.de>
+Maintainer: Jan Holstein <holstein@uni-bremen.de>
+Description: plot raster maps using GRASS(-style) colormaps
+License: GPL-3
