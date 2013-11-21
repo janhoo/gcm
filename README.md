@@ -2,7 +2,7 @@
 
 [The R Project for Statistical Computing](www.r-project.org/) is a free software environment for statistical computing and graphics.
 
-[raster](cran.r-project.org/web/packages/raster/‎) is R package for Geographic data analysis and modeling.
+[Raster](cran.r-project.org/web/packages/raster/‎) is a R package for Geographic data analysis and modeling.
 
 [GRASS GIS](http://grass.osgeo.org/) is a free and open source Geographic Information System (GIS) software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization.
 
