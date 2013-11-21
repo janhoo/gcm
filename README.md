@@ -17,12 +17,9 @@ open Terminal/C-shell/Bash, navigate to the folder where you unzipped the Archiv
 ```
 R CMD check gcm-master (optional)
 R CMD build gcm-master
+R CMD INSTALL gcm_1.0.tar.gz
 ```
 
-A package is being build (something like gcm_1.0.tar.gz). In R type:
-```
-install.packages("PathToFolder/NameOfPackage.tar.gz", repos = NULL, type="source")
-```
 Done.
 
 
