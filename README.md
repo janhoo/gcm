@@ -11,6 +11,7 @@ This R package makes it easy to use GRASS's raster colormaps and colormaps build
 ----
 
 provides
+
 plot.gcm(x,cmap, method=2, inflate=1, min=NA, max=NA, force.breaks=FALSE, legend=F, out=NULL, ... )
 
 plot.gcm.legend(gcm,min=NULL,max=NULL, ... )
