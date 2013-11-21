@@ -19,7 +19,7 @@ R CMD check gcm-master (optional)
 R CMD build gcm-master
 ```
 
-A package is being build. Now open R and type:
+A package is being build (something like gcm_1.0.tar.gz). Now open R and type:
 ```
 install.packages("PathToFolder/NameOfPackage.tar.gz", repos = NULL, type="source")
 ```
