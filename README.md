@@ -12,19 +12,27 @@ This R package makes it easy to use GRASS's raster colormaps and colormaps build
 
 ### Installation
 unzip, 
-oben Terminal, navigate to the folder where you unzipped the Archive and type:
+open Terminal, navigate to the folder where you unzipped the Archive and type:
 
 ```
 R CMD check gcm-master (optional)
 R CMD build gcm-master
 ```
 
-open R and type:
+A package is being build. Now open R and type:
 ```
 install.packages("PathToFolder/NameOfPackage.tar.gz", repos = NULL, type="source")
 ```
+Done.
 
-**provides**
+
+If you don't want to install, just **source** the *.R files in the R-folder
+```
+source("path/plot.gcm.R")
+source("path/plot.gcm.legend.R")
+```
+
+###provides
 ```
 plot.gcm(x,cmap, method=2, inflate=1, min=NA, max=NA, force.breaks=FALSE, legend=F, out=NULL, ... )
 ```
@@ -32,11 +40,7 @@ plot.gcm(x,cmap, method=2, inflate=1, min=NA, max=NA, force.breaks=FALSE, legend
 plot.gcm.legend(gcm,min=NULL,max=NULL, ... )
 ```
 
-If you don't want to install, just **source** the *.R files in the R-folder
-```
-source("path/plot.gcm.R")
-source("path/plot.gcm.legend.R")
-```
+
 ### Example
 
 refer to [janhooo.wordpress.com](http://janhooo.wordpress.com/2013/11/20/gcm-use-grass-colormaps-in-r-raster-plots/) for an introduction
