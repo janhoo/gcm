@@ -12,14 +12,14 @@ This R package makes it easy to use GRASS's raster colormaps and colormaps build
 
 ### Installation
 unzip, 
-open Terminal, navigate to the folder where you unzipped the Archive and type:
+open Terminal/C-shell/Bash, navigate to the folder where you unzipped the Archive and type:
 
 ```
 R CMD check gcm-master (optional)
 R CMD build gcm-master
 ```
 
-A package is being build (something like gcm_1.0.tar.gz). Now open R and type:
+A package is being build (something like gcm_1.0.tar.gz). In R type:
 ```
 install.packages("PathToFolder/NameOfPackage.tar.gz", repos = NULL, type="source")
 ```
