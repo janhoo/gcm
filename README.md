@@ -32,12 +32,12 @@ source("path/plot.gcm.R")
 source("path/plot.gcm.legend.R")
 ```
 
-###provides
+### Provides
 ```
-plot.gcm(x,cmap, method=2, inflate=1, min=NA, max=NA, force.breaks=FALSE, legend=F, out=NULL, ... )
+plot.gcm(x,cmap, method=2, inflate=1, min=NA, max=NA, force.breaks=FALSE, legend=FALSE, out=NULL, ... )
 ```
 ```
-plot.gcm.legend(gcm,min=NULL,max=NULL, ... )
+plot.gcm.legend(gcm, min=NULL, max=NULL, ... )
 ```
 
 
