@@ -2,7 +2,7 @@ plot.gcm <-
 function(x,cmap, method=2, inflate=1, min=NA, max=NA, force.breaks=FALSE, legend=F, out=NULL, ... )
 {
 	
-	is.integer0 <- function(x)
+is.integer0 <- function(x)
 {
   is.integer(x) && length(x) == 0L
 }
@@ -25,7 +25,7 @@ remove.nodata.rows<-function(df)
 
 break.type<-function(breaks)
 {
-	relbreaks<-grep("%$",breaks)
+	relbreaks<-grep("%$",as.character(breaks))
 	if(is.integer0(relbreaks)){ 		
 		out<-"absolute breaks \n"
 		break.type<-"abs"
@@ -58,20 +58,28 @@ abs.break<-function(r,min,max,relbreaks)
 	return(as.character(x))
 }
 
+rgbcolor<-function(v)
+{
+		if (number.of.character(as.character(v))==2){		#  r:g:b NA NA
+			as.numeric(unlist(strsplit(v, "[:]")))
+		} else {	
+			if(v=="indigo")	{v<-"#6F00FF"}
+			if(v=="aqua")	{v<-"#00FFFF"}
+			as.vector(col2rgb(v))
+		}		
+}
+
+
 rgbcolors<-function(df)
 {
 	if(is.na(df[2]) & is.na(df[3])){ 						# x NA NA
-		if (number.of.character(as.character(df[1]))==2){		#  r:g:b NA NA
-			as.numeric(unlist(strsplit(df[1], "[:]")))
-		} else {	
-			if(df[1]=="indigo")	{df[1]<-"#6F00FF"}
-			if(df[1]=="aqua")	{df[1]<-"#00FFFF"}
-			as.vector(col2rgb(df[1]))
-		}		
+		rgbcolor(df[1])	
 	} else {
 		as.numeric(df)											# r g b 
 	}
 }
+
+
 
 color.map1<-function(gcm,inflate=inflate)
 { # number of colors in interval is proportional to interval-size: good if intervals have approx same size. inflate~=1/magnitude
@@ -130,16 +138,29 @@ color.map2<-function(gcm,inflate=inflate)
 	break.labels<-gcm[!duplicated(gcm[1]),1]
 	li$colormap[match(break.labels,li$breakmap)]
 }
-
-	c<-read.table(file=cmap, stringsAsFactors=F, col.names=c("breaks","r","g","b"), fill=T,sep="")
-	c<-remove.nodata.rows(c)
-	if(class(x)=="RasterLayer")
+	#main file.exists(...)
+	stopifnot(class(x)=="RasterLayer")
+	if(is.na(min)){min<-minValue(x)}
+	if(is.na(max)){max<-maxValue(x)}
+	if(class(cmap)=="character")
 	{
-		if(is.na(min)){min<-minValue(x)}
-		if(is.na(max)){max<-maxValue(x)}
+		if(file.exists(cmap))
+		{
+			c<-read.table(file=cmap, stringsAsFactors=F, col.names=c("breaks","r","g","b"), fill=T,sep="")
+		} else {
+			c<-read.table(text=cmap, stringsAsFactors=F, col.names=c("breaks","r","g","b"), header=F,fill=T,sep="")
+		}
+	} else {
+		cat<-sapply(cmap, is.factor)
+		cmap[cat]<-lapply(cmap[cat],as.character)	
+		c<-cmap
 	}
+	c<-remove.nodata.rows(c)
+	stopifnot(ncol(c)==2 | ncol(c)==4)
+	colors<-switch(as.character(ncol(c)),
+		"2" = rgb(t(sapply(c[,2],function(x){rgbcolor(x)}/255))),
+		"4" = rgb(t(apply(c[,2:4],1, rgbcolors)/255)))
 	breaks<-make.breaks(c$breaks,min=min,max=max)
-	colors<-rgb(t(apply(c[,2:4],1, rgbcolors)/255))
 	gcm<-data.frame(breaks=breaks,colors=colors,stringsAsFactors=FALSE)
 	cm<-switch(method, color.map1(gcm,inflate), color.map2(gcm,inflate))
 	brks<-cm$breakmap
