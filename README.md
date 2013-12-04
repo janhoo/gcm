@@ -41,12 +41,12 @@ plot.gcm.legend(gcm, min=NULL, max=NULL, ... )
 
 
 ### Example
-check the package documentation
+refer to the package documentation
 ```
 library(gcm)
 ?gcm
 ```
-or refer to [janhooo.wordpress.com](http://janhooo.wordpress.com/2013/11/20/gcm-use-grass-colormaps-in-r-raster-plots/) for an introduction
+or check [janhooo.wordpress.com](http://janhooo.wordpress.com/2013/11/20/gcm-use-grass-colormaps-in-r-raster-plots/) for an introduction
 
 
 
