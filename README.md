@@ -1,12 +1,14 @@
 # gcm - use GRASS colormaps in R
 
+
+This R package makes it easy to use GRASS's raster colormaps and colormaps build according to GRASS rules (see [r.colors](http://grass.osgeo.org/grass64/manuals/r.colors.html)) when plotting raster maps with the raster package.
+
 [The R Project for Statistical Computing](www.r-project.org/) is a free software environment for statistical computing and graphics.
 
 [raster](cran.r-project.org/web/packages/raster/‎) is a R package for Geographic data analysis and modeling.
 
 [GRASS GIS](http://grass.osgeo.org/) is a free and open source Geographic Information System (GIS) software suite used for geospatial data management and analysis, image processing, graphics and maps production, spatial modeling, and visualization.
 
-This R package makes it easy to use GRASS's raster colormaps and colormaps build according to GRASS rules when plotting raster maps with the raster package. [r.colors](http://grass.osgeo.org/grass64/manuals/r.colors.html).
 
 ----
 
@@ -39,8 +41,13 @@ plot.gcm.legend(gcm, min=NULL, max=NULL, ... )
 
 
 ### Example
+check the package documentation
+```
+library(gcm)
+?gcm
+```
+or refer to [janhooo.wordpress.com](http://janhooo.wordpress.com/2013/11/20/gcm-use-grass-colormaps-in-r-raster-plots/) for an introduction
 
-refer to [janhooo.wordpress.com](http://janhooo.wordpress.com/2013/11/20/gcm-use-grass-colormaps-in-r-raster-plots/) for an introduction
 
 
 
