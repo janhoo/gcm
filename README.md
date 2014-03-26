@@ -13,7 +13,13 @@ This R package makes it easy to use GRASS's raster colormaps and colormaps build
 ----
 
 ### Installation
-unzip, 
+just issue
+```
+devtools::install_github("gcm", "janhoo")
+```
+you may need to (`install.packages("devtools")`) first.
+
+Or download, unzip, 
 open Terminal/C-shell/Bash, navigate to the folder where you unzipped the Archive and type:
 
 ```
